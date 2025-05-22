@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "My Clickable Button Extension",
+  "name": "Gemini to Markdown (GeminiNoteTaker)",
   "version": "1.0",
-  "description": "A simple Chrome extension with a clickable button.",
+  "description": "This extension converts Gemini content to Markdown format.",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
