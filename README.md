@@ -25,9 +25,15 @@ The MD File Creator extension automates the entire process:
 ## How to Use
 1. Install the extension in Chrome.
 2. Navigate to the Gemini platform.
-3. Click the "Start Extension" button.
-4. Customize the filename in the popup (if needed) and click "Save."
-5. The `.md` file will be downloaded automatically with the clipboard content.
+3. Click the "Copy" button within the Gemini application for the content you want to save.
+4. The "Save Markdown File" popup will automatically appear in the top-right corner of your screen.
+5. Customize the filename in the popup (if needed) and click "Save."
+6. The `.md` file will be downloaded automatically with the copied clipboard content.
+
+## Screenshots
+Below is an example of the extension in action:
+
+![Example Screenshot](https://github.com/chinmay-sawant/gemini-to-markdown/blob/master/Screenshots/Example.png)
 
 ## Acknowledgments
 Special thanks to Gemini and GitHub Copilot for making the development of this extension seamless and efficient.
