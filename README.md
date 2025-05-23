@@ -87,10 +87,15 @@ Once installed, the extension primarily works on the `https://gemini.google.com/
 
 ## Screenshots
 
-Below is an example of the extension's Utilities overlay in action:
+Below are examples of the extension's Utilities overlay in action:
 
-![Example Screenshot of Utilities Menu](Screenshots/Example.png)
-*(Make sure the `Screenshots/Example.png` file exists in your repository at this path for the image to display correctly.)*
+![Utilities Option](Screenshots/Utilities_Option.png)
+
+![Download Conversation Markdown](Screenshots/Download_Conversation_Markdown.png)
+
+![Copy HTML To Markdown](Screenshots/Copy_HTML_To_Markdown.png)
+
+![Viewing markdown](Screenshots/Viewing_markdown.png)
 
 ## Acknowledgments
 
@@ -100,3 +105,4 @@ Below is an example of the extension's Utilities overlay in action:
 ---
 
 **Happy Markdown Creating! 🚀**
+
