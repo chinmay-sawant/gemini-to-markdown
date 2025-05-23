@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Gemini to Markdown (GeminiNoteTaker)",
-  "version": "1.0",
-  "description": "This extension converts Gemini content to Markdown format.",
+  "name": "Gemini Utilities",
+  "version": "1.1",
+  "description": "This extension converts Gemini content to Markdown format and downloads your chat history. It also provides an option to copy the HTML content to a Markdown file.",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
