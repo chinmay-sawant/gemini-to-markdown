@@ -1,74 +1,102 @@
-# MD File Creator Chrome Extension
+# Gemini to Markdown (GeminiNoteTaker) Chrome Extension
 
-## Use Case
-This Chrome extension simplifies the process of saving `.md` (Markdown) files directly from the Gemini platform. It is designed to automate the task of copying content and saving it as a Markdown file, which is especially useful for developers and content creators who frequently work with Gemini and Markdown files.
+## Overview
+This Chrome extension enhances your experience on the Gemini platform (`https://gemini.google.com/`) by simplifying the process of saving conversations and content as `.md` (Markdown) files. It automates the task of extracting, converting (HTML to Markdown), and saving chat content, which is especially useful for developers, writers, and anyone who frequently works with Gemini and requires Markdown output.
 
-## Problem Statement
-Previously, saving `.md` files from Gemini required a manual process:
-1. Copying the content from the Gemini platform.
-2. Opening a text editor.
-3. Pasting the content.
-4. Saving the file with a `.md` extension.
+## Problem Solved
+Previously, saving content from Gemini as a Markdown file involved a manual, multi-step process:
+1.  Manually selecting and copying content from Gemini.
+2.  Opening a text editor.
+3.  Pasting the copied content.
+4.  Manually cleaning up and formatting the content for Markdown (e.g., code blocks, lists).
+5.  Saving the file with a `.md` extension.
 
-This repetitive process was time-consuming and prone to errors, especially when dealing with multiple files. The need for automation led to the creation of this extension.
+This repetitive workflow was time-consuming and prone to formatting errors. This extension was created to streamline this process into a few clicks, directly within the Gemini interface.
 
-## Solution
-The MD File Creator extension automates the entire process:
-1. It identifies the relevant content (e.g., `<h2>` tags) on the Gemini platform.
-2. It allows users to customize the filename via a popup.
-3. It saves the content as a `.md` file with a single click.
+## Key Features
 
-## Tools Used
-- **Gemini**: The platform from which content is extracted.
-- **GitHub Copilot**: Used to assist in the development of this extension, providing code suggestions and solutions to streamline the process.
+*   **Direct HTML-to-Markdown Conversion**: Utilizes the integrated **Turndown.js library** to accurately convert Gemini's HTML chat content directly into well-formatted Markdown. This includes proper handling of code blocks, lists, headings, and other common HTML elements.
+*   **Integrated "Utilities" Menu**: A "Utilities" button is dynamically added to the Gemini UI, providing access to:
+    *   **⬇️ Download Conversation**: Extracts the current chat, converts it to Markdown, and prompts for a filename to save. Includes smart filename suggestions (using conversation title or a detailed timestamp).
+    *   **📋 Copy as Markdown**: Converts the current conversation to Markdown and copies it directly to your clipboard, ready to paste into any application.
+    *   **🗑️ Clear Conversation**: Quickly starts a fresh chat session in Gemini (with a confirmation prompt).
+    *   **⚙️ Extension Settings**: Access a settings panel to customize filename formats and toggle auto-download behavior.
+*   **Automatic Copy Button Integration (Configurable)**: Optionally, the extension can detect clicks on Gemini's native "Copy" button to automatically trigger a download popup with the copied content, already converted to Markdown.
+*   **Smart Filename Generation**: Suggests filenames based on the conversation's H2 title (if available) or a timestamp format (e.g., `GeminiConversation_DDMMYYYY_HHMMAMPM.md`).
+*   **UI/UX**: 
+    *   **Dark Theme Integration**: The extension's UI (popups, overlays) is styled to match Gemini's dark theme for a consistent look and feel.
+    *   **Toast Notifications**: Provides non-intrusive feedback for actions like "Copied to clipboard" or "File saved."
+*   **Robust and Modern**: Built using Manifest V3 standards. Includes retry mechanisms for UI element injection and graceful error handling.
 
 ## Installation
-1. Download or clone this repository to your local machine.
-2. Open Chrome and navigate to `chrome://extensions/`.
-3. Enable "Developer mode" by toggling the switch in the top right corner.
-4. Click "Load unpacked" and select the extension folder.
-5. The extension should now appear in your Chrome extensions list.
-6. Navigate to https://gemini.google.com/ to start using the extension.
+
+1.  **Download the Extension Files**:
+    *   Download or clone this repository to your local machine.
+    *   Ensure all files are present in the `MD_File_Creator` (or the main extension) directory.
+2.  **Open Chrome Extensions Page**:
+    *   Open Google Chrome.
+    *   Navigate to `chrome://extensions/` in the address bar.
+3.  **Enable Developer Mode**:
+    *   In the top-right corner of the Extensions page, find the "Developer mode" toggle and switch it **ON**.
+4.  **Load the Extension**:
+    *   Click the "Load unpacked" button (usually on the top-left).
+    *   In the file dialog, navigate to and select the root folder of the extension (e.g., `MD_File_Creator`).
+5.  **Verify Installation**:
+    *   The "Gemini to Markdown (GeminiNoteTaker)" extension should now appear in your list of installed extensions.
+    *   Ensure it is enabled.
 
 ## How to Use
-1. Install the extension in Chrome.
-2. Navigate to the Gemini platform.
-3. **Method 1 - Copy Button**: Click the "Copy" button within the Gemini application for the content you want to save.
-   - The "Save Markdown File" popup will automatically appear in the top-right corner of your screen.
-   - Customize the filename in the popup (if needed) and click "Save."
-   - The `.md` file will be downloaded automatically with the copied clipboard content.
-4. **Method 2 - Utilities Menu**: Look for the "Utilities" button next to the Canvas button in Gemini's interface.
-   - Click the "Utilities" button to open the utilities overlay menu.
-   - Choose from various options:
-     - **Download Conversation**: Automatically convert and save the conversation as markdown file
-     - **Copy as Markdown**: Convert and copy conversation content to clipboard as markdown
-     - **Clear Conversation**: Start a fresh conversation
-     - **Extension Settings**: Configure extension preferences
 
-## Features
-- **Automatic Copy Detection**: Monitors copy button clicks and automatically displays save dialog
-- **Smart Filename Generation**: Uses H2 tag content or timestamp format (GeminiHelper_DDMMYYYY_HHMMAMPM)
-- **Utilities Overlay**: Beautiful overlay menu with multiple utility functions
-- **Dark Theme Integration**: Matches Gemini's dark theme for seamless user experience
-- **Toast Notifications**: Provides feedback for user actions
-- **Settings Configuration**: Customizable extension preferences
+Once installed, the extension primarily works on the `https://gemini.google.com/` website.
+
+1.  **Navigate to Gemini**: Open a conversation on the Gemini platform.
+2.  **Accessing Utilities**: Look for the **"Utilities"** button, which should appear in the Gemini interface (typically near the "Canvas" or other toolbar buttons).
+    *   Clicking the "Utilities" button will open an overlay menu.
+3.  **Using the Utilities Menu**:
+    *   **Download Conversation**: Select this option to extract the current chat. The content will be converted to Markdown, and a popup will appear allowing you to confirm or change the filename before saving the `.md` file.
+    *   **Copy as Markdown**: Select this to convert the current chat to Markdown and copy it to your clipboard. A toast notification will confirm the action.
+    *   **Clear Conversation**: Click this to initiate a new chat in Gemini. A confirmation will be requested.
+    *   **Extension Settings**: Opens a dialog to configure preferences like default filename format and auto-download behavior (e.g., triggering download on native copy button click).
 
 ## Troubleshooting
-- **Utilities button not appearing**: Refresh the Gemini page or wait a few seconds for the button to load
-- **Copy detection not working**: Ensure you have granted clipboard permissions to the extension
-- **Downloads not working**: Check if Chrome has download permissions and your download folder is accessible
-- **Extension not loading**: Verify all files are present and manifest.json is valid
+
+*   **Extension Not Loading / Errors on Load**:
+    *   Ensure all files from the repository/ZIP are in the selected folder.
+    *   Verify `manifest.json` is valid (no syntax errors).
+    *   Make sure "Developer mode" is enabled on `chrome://extensions/`.
+    *   Try removing and re-adding the extension.
+*   **"Utilities" Button Missing**: 
+    *   Refresh the Gemini page. The button is injected dynamically and might take a moment.
+    *   Wait 5-10 seconds for the script's retry mechanism.
+    *   Check the browser console (F12 -> Console) for any error messages related to the extension.
+    *   Ensure you are on an active `https://gemini.google.com/` page with a conversation.
+*   **Downloads Not Working / Markdown Formatting Issues**: 
+    *   Check Chrome's download settings and ensure the site is not blocked from downloading files.
+    *   Verify your computer's download folder is accessible and has space.
+    *   If Markdown formatting is incorrect (especially for code), ensure the extension is up to date and report the issue if it persists.
+*   **Permissions**: The extension requires `clipboardRead` (to read content when you click Gemini's copy button, if that feature is enabled in settings) and `downloads` (to save files). Ensure these are granted.
 
 ## Technical Details
-- **Manifest Version**: 3
-- **Required Permissions**: clipboardRead, downloads
-- **Target Website**: https://gemini.google.com/*
-- **Browser Compatibility**: Chrome (Manifest V3 compatible browsers)
+
+*   **Manifest Version**: 3
+*   **Core Technologies**: JavaScript, HTML, CSS
+*   **Key Libraries/APIs**: Chrome Extension APIs (Storage, Downloads, Scripting), DOM Manipulation, **Turndown.js** for HTML-to-Markdown conversion.
+*   **Required Permissions**: `clipboardRead`, `downloads`
+*   **Target Website**: `https://gemini.google.com/*`
+*   **Browser Compatibility**: Designed for Google Chrome and other Chromium-based browsers that support Manifest V3 extensions.
 
 ## Screenshots
-Below is an example of the extension in action:
 
-![Example Screenshot](https://github.com/chinmay-sawant/gemini-to-markdown/blob/master/Screenshots/Example.png)
+Below is an example of the extension's Utilities overlay in action:
+
+![Example Screenshot of Utilities Menu](Screenshots/Example.png)
+*(Make sure the `Screenshots/Example.png` file exists in your repository at this path for the image to display correctly.)*
 
 ## Acknowledgments
-Special thanks to Gemini and GitHub Copilot for making the development of this extension seamless and efficient.
+
+*   This extension was developed with the assistance of AI tools, including GitHub Copilot, for code generation, suggestions, and problem-solving.
+*   The **Turndown.js** library is crucial for the HTML-to-Markdown conversion functionality.
+
+---
+
+**Happy Markdown Creating! 🚀**
