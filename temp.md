@@ -4,13 +4,15 @@ To print "Hello, World!" in Go, you can use the following code:
 
 Go
 
-    package main
-    
-    import "fmt"
-    
-    func main() {
-    	fmt.Println("Hello, World!")
-    }
+```
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+}
+```
 
 **Explanation:**
 
@@ -27,7 +29,7 @@ Go
 
 This will compile and run the program, and you will see "Hello, World!" printed on your console.
 
-* * *
+---
 
 change it to Good Evening world
 
@@ -37,16 +39,18 @@ Here's the updated Go code:
 
 Go
 
-    package main
-    
-    import "fmt"
-    
-    func main() {
-    	fmt.Println("Good Evening, World!")
-    }
+```
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Good Evening, World!")
+}
+```
 
 **Explanation:**
 
 The only change is within `fmt.Println()`, where `"Hello, World!"` has been replaced with `"Good Evening, World!"`. When you run this code, it will now print "Good Evening, World!" to your console.
 
-* * *
+---
