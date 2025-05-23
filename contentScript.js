@@ -70,12 +70,26 @@ async function handleDownloadWithPopup() {
     const h2Elements = document.querySelectorAll('h2[data-sourcepos]');
     const h2Element = h2Elements[h2Elements.length - 1]; // Select the last <h2> tag
 
-    if (!h2Element) {
-        console.error('No matching <h2> tag found.');
-        return;
+    let defaultFilename;
+    if (h2Element) {
+        defaultFilename = h2Element.textContent.trim() + '.md';
+    } else {
+        // Format current date and time as DDMMYYYY_HHMMAMPM
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+        const year = now.getFullYear();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        const strHours = String(hours).padStart(2, '0');
+        
+        defaultFilename = `GeminiHelper_${day}${month}${year}_${strHours}${minutes}${ampm}.md`;
+        console.log('No matching <h2> tag found. Using default filename:', defaultFilename);
     }
 
-    const defaultFilename = h2Element.textContent.trim() + '.md';
     const clipboardContent = await navigator.clipboard.readText();
 
     // Create a popup for filename input
